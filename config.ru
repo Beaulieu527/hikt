@@ -7,3 +7,4 @@ end
 run ApplicationController
 use HikesController
 use UsersController
+use ReviewsController
