@@ -2,12 +2,13 @@ class HikesController < ApplicationController
 
   # GET: /hikes
   get "/hikes" do
-    erb :"/hikes/index.html"
+    @hikes = Hike.all
+    erb :"/hikes/index"
   end
 
   # GET: /hikes/new
   get "/hikes/new" do
-    erb :"/hikes/new.html"
+    erb :"/hikes/new"
   end
 
   # POST: /hikes
@@ -17,12 +18,12 @@ class HikesController < ApplicationController
 
   # GET: /hikes/5
   get "/hikes/:id" do
-    erb :"/hikes/show.html"
+    erb :"/hikes/show"
   end
 
   # GET: /hikes/5/edit
   get "/hikes/:id/edit" do
-    erb :"/hikes/edit.html"
+    erb :"/hikes/edit"
   end
 
   # PATCH: /hikes/5

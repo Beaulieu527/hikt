@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-
-    has_many :reviews
     has_secure_password
-
+    has_many :tweets
+    
     def slug
         self.username.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
     end 
@@ -10,4 +9,4 @@ class User < ActiveRecord::Base
     def self.find_by_slug(slug)
         self.all.find{|object| object.slug == slug}
     end 
-end
+end 

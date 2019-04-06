@@ -1,0 +1,20 @@
+<h1 class="text-center display-4">Hikes</h1>
+
+<div class="container">
+    <div class="row">
+            <%@hikes.each do |hike|%>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="<%=hike.img_url%>" alt="Image goes here"></a>
+                    <div class="card-body">
+                        <h5 class="card-title"><%=hike.name%></h5>
+                        <p class="card-text"><strong>Summary:</strong><%=hike.summary%></p>
+                        <p class="card-text"><strong>Location:</strong><%=hike.location%></p>
+                        <p class="card-text"><strong>Length:</strong><%=hike.length%>mi.</p>
+                    </div>
+                    <a class="btn" href="reviews/index">Reviews</a>
+                </div>
+            </div>
+            <%end%>
+    </div>
+</div>
