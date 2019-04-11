@@ -1,2 +1,7 @@
-<h1>Leave a review for this hike!</h1>
-
+<h1>Create Review</h1>
+<form action="/hikes/:hike_id/reviews" method="post">
+        <label for="content">Review Content:</label><br>
+        <input type="text" name="content"><br>
+        <br>
+        <button type="submit" name="submit" id="submit" value="Submit">Create Review</button>
+    </form>

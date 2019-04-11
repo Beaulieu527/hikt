@@ -1,0 +1,9 @@
+<%=@review.content%>
+
+<% if current_user == @review.user%>
+    <a class="btn" href="/hikes/:hike_id/reviews/:id/edit">Edit Your Review</a> 
+    <form action="/hikes/:hike_id/reviews/<%=@review.id%>" method= 'post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Delete Review' id= 'Delete Review'>
+    </form>
+<%end%>

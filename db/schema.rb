@@ -22,15 +22,16 @@ ActiveRecord::Schema.define(version: 20190331192808) do
     t.string "img_url"
   end
 
-  create_table "reveiws", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
     t.integer "hike_id"
     t.integer "user_id"
     t.string  "content"
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
   end
 
 end

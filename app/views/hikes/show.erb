@@ -1,0 +1,21 @@
+<img class="card-img-top" src="<%=@hike.img_url%>" alt=""></a>
+                    <div class="card-body">
+                        <h1 class="card-title"><%=@hike.name%></h1>
+                        <p class="card-text"><strong>Summary:</strong><%=@hike.summary%></p>
+                        <p class="card-text"><strong>Location:</strong><%=@hike.location%></p>
+                        <p class="card-text"><strong>Length:</strong><%=@hike.length%>mi.</p>
+                        <br>
+
+                        <form action="/hikes/<%=@hike.id%>" method= 'post'>
+                            <input type='hidden' name='_method' value='delete'>
+                            <input type='submit' value='Delete Hike' id= 'Delete Hike'>
+                        </form>
+
+                        <a href='/hikes/<%=@hike.id%>/edit'>Edit Hike</a>
+                        <!--<h2>Reviews:</h2>
+                            <%@hike.reviews.each do |review|%>
+                                <p class="card-text"><%=@hike.review.content%></p>
+                            <%end%>
+                        <a class="btn" href="/hikes/:hike_id/reviews/new">Add Your Review</a>
+                        -->
+                    </div>

@@ -1,6 +1,6 @@
 class CreateReviews < ActiveRecord::Migration
   def change
-    create_table :reveiws do |t|
+    create_table :reviews do |t|
       t.integer :hike_id
       t.integer :user_id
       t.string :content

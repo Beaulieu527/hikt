@@ -1,7 +1,7 @@
 class Hike < ActiveRecord::Base
 
     has_many :reviews
-
+    belongs_to :user
     def slug
         self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
     end 
