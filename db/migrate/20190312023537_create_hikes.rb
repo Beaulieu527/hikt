@@ -7,6 +7,7 @@ class CreateHikes < ActiveRecord::Migration
       t.string :location
       t.float :length
       t.string :img_url
+      t.integer :user_id
     end
   end
 end

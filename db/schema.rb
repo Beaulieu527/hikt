@@ -14,12 +14,13 @@
 ActiveRecord::Schema.define(version: 20190331192808) do
 
   create_table "hikes", force: :cascade do |t|
-    t.string "name"
-    t.string "summary"
-    t.string "difficulty"
-    t.string "location"
-    t.float  "length"
-    t.string "img_url"
+    t.string  "name"
+    t.string  "summary"
+    t.string  "difficulty"
+    t.string  "location"
+    t.float   "length"
+    t.string  "img_url"
+    t.integer "user_id"
   end
 
   create_table "reviews", force: :cascade do |t|

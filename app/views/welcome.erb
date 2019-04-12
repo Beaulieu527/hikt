@@ -9,10 +9,10 @@
       <h1>Welcome to Hikt</h1>
 
       <%if logged_in?%>
-        <a href="/logout">Log Out</a>
+        <a type="button" class="btn btn-warning" href="/logout">Log Out</a>
        <%else%>
-        <a href="/signup">Sign Up</a>
-        <a href="/login">Log In</a>
+        <a type="button" class="btn btn-info" href="/signup">Sign Up</a>
+        <a type="button" class="btn btn-primary" href="/login">Log In</a>
       <%end%>
     </div>
 

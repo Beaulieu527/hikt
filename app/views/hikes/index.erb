@@ -1,5 +1,8 @@
 <h1 class="text-center display-4">Hikes</h1>
-<a class="btn" href="hikes/new">Add Hike</a>
+<br>
+<a class= "btn btn-primary" href="hikes/new">Add Hike</a>
+<br>
+<br>
 <div class="container">
     <div class="row">
             <%@hikes.each do |hike|%>
@@ -8,11 +11,8 @@
                     <img class="card-img-top" src="<%=hike.img_url%>" alt=""></a>
                     <div class="card-body">
                         <h5 class="card-title"><%=hike.name%></h5>
-                        <p class="card-text"><strong>Summary:</strong><%=hike.summary%></p>
-                        <p class="card-text"><strong>Location:</strong><%=hike.location%></p>
-                        <p class="card-text"><strong>Length:</strong><%=hike.length%>mi.</p>
                     </div>
-                    <a class="btn" href="/hikes/<%=hike.id%>">Show Hike</a>
+                    <a class="btn btn-info" href="/hikes/<%=hike.id%>">Show Hike</a>
                 </div>
             </div>
             <%end%>
