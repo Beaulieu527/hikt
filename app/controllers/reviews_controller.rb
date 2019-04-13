@@ -3,11 +3,15 @@
 
 
 class ReviewsController < ApplicationController
+    # before "/*" do 
+    #   set_hike
+    # end
 
     get '/hikes/:hike_id/reviews' do 
+
       if logged_in?
-        @reviews = Review.all
-        erb :'users/show'
+        @reviews = @hike.reviews
+        erb :'hikes/show'
       else 
         redirect '/login'
       end
@@ -25,8 +29,8 @@ class ReviewsController < ApplicationController
     
     post '/hikes/:hike_id/reviews' do 
       if logged_in? && !params[:content].empty?
-        @review = Review.create(content: params[:content],user_id: current_user.id)
-        redirect to "/hikes/#{params[:hike_id]}/reviews/#{@review.id}"
+        @review = set_hike.reviews.create(content: params[:content],user_id: current_user.id)
+        redirect to "/hikes/#{params[:hike_id]}"
         
       elsif logged_in? 
         redirect '/hikes/#{params[:hike_id]}'
@@ -35,18 +39,18 @@ class ReviewsController < ApplicationController
       end
     end
     
-    get '/hikes/:hike_id/reviews/:id' do 
-      @review = Review.find(params[:id])
-      if logged_in?
-        erb :'reviews/show'
-      else
-        redirect '/login'
-      end
-    end
+    # get '/hikes/:hike_id/reviews/:id' do 
+    #   @review = @hike.reviews.find(params[:id])
+    #   if logged_in?
+    #     erb :'hikes/show'
+    #   else
+    #     redirect '/login'
+    #   end
+    # end
     
     get '/hikes/:hike_id/reviews/:id/edit' do 
       if logged_in?
-        @review = Review.find(params[:id])
+        @review = @hike.reviews.find(params[:id])
         erb :'reviews/edit_review'
       else 
         redirect '/login'
@@ -60,9 +64,9 @@ class ReviewsController < ApplicationController
     patch '/hikes/:hike_id/reviews/:id' do
       if logged_in?
         if params[:content] != "" 
-          @review = Review.find(params[:id])
+          @review = @hike.reviews.find(params[:id])
           @review.update(content: params[:content])
-          redirect "/hikes/#{params[:hike_id]}/reviews/#{@review.id}"
+          redirect "/hikes/#{params[:hike_id]}"
         else
           redirect "/hikes/#{params[:hike_id]}/#{params[:id]}/edit"
         end
@@ -72,12 +76,17 @@ class ReviewsController < ApplicationController
     end
     
     delete '/hikes/:hike_id/reviews/:id' do
-      @review = Review.find(params[:id])
+      @review = @hike.reviews.find(params[:id])
       if logged_in? && current_user.id == @review.user_id
           @review.delete
-          redirect '/hikes/#{params[:hike_id]}/reviews'
+          redirect '/hikes/#{params[:hike_id]}'
       else
           redirect "/login"
       end
-  end
+    end
+
+    private
+      def set_hike
+        @hike = Hike.find(params[:hike_id])
+      end
   end

@@ -13,6 +13,10 @@ class ApplicationController < Sinatra::Base
     erb :welcome 
   end
 
+  error ActiveRecord::RecordNotFound do
+    redirect '/'
+  end
+
   helpers do 
     def logged_in?
       !!current_user

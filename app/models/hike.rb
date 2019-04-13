@@ -2,13 +2,13 @@ class Hike < ActiveRecord::Base
 
     has_many :reviews
     belongs_to :user
-    def slug
-        self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-    end 
+    # def slug
+    #     self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    # end 
 
-    def self.find_by_slug(slug)
-        self.all.find{|object| object.slug == slug}
-    end 
+    # def self.find_by_slug(slug)
+    #     self.all.find{|object| object.slug == slug}
+    # end 
 
     def self.import(data)
         trails = data["trails"].map do |hash|

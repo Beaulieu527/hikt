@@ -12,12 +12,20 @@
                         </form>
                         <br>
                         <a class="btn btn-warning" href='/hikes/<%=@hike.id%>/edit'>Edit Hike</a>
-                        <!--<h2>Reviews:</h2>
+                        <h2>Reviews:</h2>
                             <%@hike.reviews.each do |review|%>
-                                <p class="card-text"><%=@hike.review.content%></p>
+                                <p class="card-text"><strong><%=review.user.username%> says:</strong> <%=review.content%></p>
                             <%end%>
-                        <a class="btn" href="/hikes/:hike_id/reviews/new">Add Your Review</a>
-                        -->
+                            <br>
+
+                        <h1>Create Review</h1>
+                        <form action="/hikes/<%=@hike.id%>/reviews" method="post">
+                            <label for="content">Review Content:</label><br>
+                            <input type="text" name="content"><br>
+                            <br>
+                            <button type="submit" name="submit" id="submit" value="Submit">Create Review</button>
+                        </form>
+                    
                     </div>
 
                     <a type="button" class="btn btn-default" href="/hikes">Back</a>
